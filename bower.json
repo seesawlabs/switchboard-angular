@@ -2,5 +2,7 @@
   "name": "inspinia",
   "version": "0.0.0",
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "angular-ui": "~0.4.0"
+  }
 }

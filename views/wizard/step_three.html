@@ -1,8 +1,68 @@
 <fieldset>
-    <h2>Terms and Conditions</h2>
-    <input id="acceptTerms" name="acceptTerms" type="checkbox" ng-model="formData.terms" class="required"> <label for="acceptTerms">I agree with the Terms and Conditions.</label>
-</fieldset>
-<fieldset class="m-t-md">
-    <a ui-sref="forms.wizard.step_two" class="btn btn-default">Previous</a>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <h2>Payment Information</h2>
+
+    <div class="row" ng-init="formData = {budget:0}">
+        <div class="col-lg-8">
+            <div class="form-group">
+                <label>Campaign Name *</label>
+                <input id="userName" ng-model="formData.username" name="username" type="text" class="form-control" ng-minlength="8">
+            </div>
+            <div class="form-group">
+                <label>Daily Budget * </label>
+                <span class="help-inline pull-right" style="color: #999;">USD per day</span>
+                <input id="budget" ng-model="formData.budget" name="budget" type="number" class="form-control text-right" data-mask="$9.99">
+                <div class="pull-right">Total Budget: {{formData.budget * 7 | currency}}</div>
+            </div>
+            <div class="form-group">
+                <label>Range *</label>
+                <div class="input-daterange input-group" id="datepicker">
+                    <input type="text" class="input-sm form-control" name="start" value="05/14/2014">
+                    <span class="input-group-addon">to</span>
+                    <input type="text" class="input-sm form-control" name="end" value="05/22/2014">
+                </div>            
+            </div>
+            <div class="form-group">
+                <label>Bid * </label>
+                <span class="help-inline pull-right" style="color: #999;">Maximum Bid Per Thousand Impressions, USD (Max. CPM)</span>
+                <input id="budget" ng-model="formData.bid" name="budget" type="number" class="form-control text-right">
+            </div>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" class="js-switch" ui-switch="{color:'#34368b'}" ng-model="formData.mobile"/> <span style="margin-left: 5px">Bid Mobile devices separately?</span>
+                </label>
+            </div>
+            <div class="form-group">
+                <label>Gender * </label>
+                <select class="form-control">
+                    <option>Any</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+            <div class="form-group age-group">
+                <label>Age *</label><br>
+
+                <p><label style="display: block"><input type="checkbox" class="js-switch" ui-switch="{color:'#34368b'}" ng-model="formData.age"/> <span style="margin-left: 5px">18 - 24</span></label></p>
+                <p><label style="display: block"><input type="checkbox" class="js-switch" ui-switch="{color:'#34368b'}" ng-model="formData.age"/> <span style="margin-left: 5px">25 - 34</span></label></p>
+                <p><label style="display: block"><input type="checkbox" class="js-switch" ui-switch="{color:'#34368b'}" ng-model="formData.age"/> <span style="margin-left: 5px">35 - 44</span></label></p>
+                <p><label style="display: block"><input type="checkbox" class="js-switch" ui-switch="{color:'#34368b'}" ng-model="formData.age"/> <span style="margin-left: 5px">45 - 54</span></label></p>
+                <p><label style="display: block"><input type="checkbox" class="js-switch" ui-switch="{color:'#34368b'}" ng-model="formData.age"/> <span style="margin-left: 5px">55 - 64</span></label></p>
+                <p><label style="display: block"><input type="checkbox" class="js-switch" ui-switch="{color:'#34368b'}" ng-model="formData.age"/> <span style="margin-left: 5px">> 64</span></label></p>
+
+            </div>
+            <div class="form-group">
+                <label>Locations *</label>
+                <input id="userName" ng-model="formData.locations" name="username" type="text" class="form-control" placeholder="US State, City, Zip, etc">
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="text-center">
+                <div style="margin-top: 20px">
+                    <i class="fa fa-sign-in" style="font-size: 180px;color: #e5e5e5 "></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a ui-sref="digital_ads.step_two" class="btn btn-default">Previous</a>
+    <a ui-sref="digital_ads.step_four" class="btn btn-primary">Next</a>
 </fieldset>
