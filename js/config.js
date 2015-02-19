@@ -8,7 +8,7 @@
  *
  */
 function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
-    $urlRouterProvider.otherwise("/dashboards/dashboard_1");
+    $urlRouterProvider.otherwise("/dashboards/dashboard_4_1");
 
     $ocLazyLoadProvider.config({
         // Set to true if you want to see what and when is dynamically loaded
@@ -141,11 +141,45 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 }
             }
         })
-        .state('layouts', {
-            url: "/layouts",
-            templateUrl: "views/layouts.html",
-            data: { pageTitle: 'Layouts' },
+        .state('digital_ads', {
+            url: "/digital-ads",
+            templateUrl: "views/digital_ads.html",
+            data: { pageTitle: 'Digital Ads' },
+            resolve: {
+                loadPlugin: function ($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            files: ['css/plugins/steps/jquery.steps.css']
+                        }
+                    ]);
+                }
+            }
         })
+            .state('digital_ads.step_one', {
+                url: '/step_one',
+                templateUrl: 'views/wizard/step_one.html',
+                data: { pageTitle: 'Wizard form' }
+            })
+            .state('digital_ads.step_two', {
+                url: '/step_two',
+                templateUrl: 'views/wizard/step_two.html',
+                data: { pageTitle: 'Wizard form' }
+            })
+            .state('digital_ads.step_three', {
+                url: '/step_three',
+                templateUrl: 'views/wizard/step_three.html',
+                data: { pageTitle: 'Wizard form' }
+            })
+            .state('digital_ads.step_four', {
+                url: '/step_four',
+                templateUrl: 'views/wizard/step_four.html',
+                data: { pageTitle: 'Wizard form' }
+            })
+            .state('digital_ads.step_five', {
+                url: '/step_five',
+                templateUrl: 'views/wizard/step_five.html',
+                data: { pageTitle: 'Wizard form' }
+            })
         .state('charts', {
             abstract: true,
             url: "/charts",

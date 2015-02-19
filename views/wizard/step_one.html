@@ -4,9 +4,12 @@
     <div class="row">
         <div class="col-lg-8">
             <div class="form-group">
-                <label>Username *</label>
+                <label>Campaign Name *</label>
                 <input id="userName" ng-model="formData.username" name="username" type="text" class="form-control" ng-minlength="8">
-                <p ng-show="signupForm.username.$error.minlength" class="help-block">Example of validation - Username is too short (min 8 signs)</p>
+            </div>
+            <div class="form-group">
+                <label>Daily Budget *</label>
+                <input id="userName" ng-model="formData.username" name="username" type="number" class="form-control text-right" ng-minlength="8" placeholder="$0.00" ui-mask="$9,999.99">
             </div>
             <div class="form-group">
                 <label>Password *</label>
